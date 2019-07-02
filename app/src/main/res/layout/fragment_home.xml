@@ -1,27 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:context=".Fragment.HomeFragment">
 
-
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/topPanel">
-
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
-    </TableLayout>
     <android.support.constraint.Guideline
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/topPanel"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.32" />
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:stretchColumns="*"
+            android:background="@color/colorGray"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/topPanel">
+
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1">
+
+            <RelativeLayout
+                    android:id="@+id/btn_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_popular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_thumb_up_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_popular"
+                        android:text="@string/Popular"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/btn_cuisines"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_cuisines"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_local_dining_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_cuisines"
+                        android:text="@string/Cuisines"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/btn_budget"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_budget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_fastfood_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_budget"
+                        android:text="@string/Budget"/>
+
+            </RelativeLayout>
+
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1">
+
+            <RelativeLayout
+                    android:id="@+id/btn_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_friends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_group_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_friends"
+                        android:text="@string/Friends"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/btn_discounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_discounts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_monetization_on_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_discounts"
+                        android:text="@string/Discounts"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/btn_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_margin="@dimen/button_gap"
+                    style="@style/Widget.AppCompat.Button">
+
+                <ImageView
+                        android:id="@+id/img_categories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dimen_4"
+                        android:src="@drawable/ic_outline_category_24px"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@+id/img_categories"
+                        android:text="@string/Categories"/>
+
+            </RelativeLayout>
+        </TableRow>
+
+    </TableLayout>
+
+
 </android.support.constraint.ConstraintLayout>
