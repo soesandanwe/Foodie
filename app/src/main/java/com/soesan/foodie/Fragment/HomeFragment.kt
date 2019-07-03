@@ -17,19 +17,14 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import android.support.v4.view.ViewCompat.setNestedScrollingEnabled
 import android.support.v7.widget.LinearLayoutManager
 import android.R.attr.country
+import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import com.soesan.foodie.Adapter.RecommendedItemHomeAdapter
+import android.support.v7.app.AppCompatActivity
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
+
 class HomeFragment : Fragment() {
 
     override fun onCreateView(
@@ -39,7 +34,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View=inflater.inflate(R.layout.fragment_home, container, false)
         val btn_popular: TopPanelButtonView = view.findViewById(R.id.btn_popular)
-        btn_popular.setOnClickListener{ view ->  Toast.makeText(context,"Hello",Toast.LENGTH_LONG).show()}
+        btn_popular.setOnClickListener{ view ->  replaceFragment(MostPopularFragment(),view)}
 
 
         val recyclerViewRecommend = view.findViewById<RecyclerView>(R.id.recyclerView_recommend_itemview)
@@ -51,6 +46,13 @@ class HomeFragment : Fragment() {
 
         return  view
     }
+    private fun replaceFragment(fragment: Fragment,view: View) {
+        val activity = view.getContext() as AppCompatActivity
+        val transaction = activity.supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.maincontent, fragment)
+        transaction.commit()
+    }
+
 
 
 
