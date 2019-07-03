@@ -14,6 +14,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/topPanel"
             app:layout_constraintGuide_percent="0.32" />
+
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RecommendedPanelTop"
+            app:layout_constraintGuide_percent="0.34" />
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RecommendedPanelBottom"
+            app:layout_constraintGuide_percent="0.34" />
     <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -91,5 +104,54 @@
 
     </TableLayout>
 
+    <TextView
+            android:id="@+id/lbl_Recommended"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="@string/Recommend"
+            android:textStyle="bold"
+            app:layout_constraintRight_toLeftOf="@+id/lbl_Recommended_SeeAll"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RecommendedPanelTop"/>
+
+    <TextView
+            android:id="@+id/lbl_Recommended_SeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="@string/SeeAll"
+            android:textStyle="bold"
+            android:textColor="@color/colorLinkBlue"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/lbl_Recommended"
+            app:layout_constraintTop_toBottomOf="@+id/RecommendedPanelTop"/>
+
+    <android.support.v4.widget.NestedScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Recommended">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_recommend_itemview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:nestedScrollingEnabled="false"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_Recommended">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.constraint.ConstraintLayout>
