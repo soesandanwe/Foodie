@@ -27,157 +27,66 @@
         <TableRow android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_weight="1">
+           <com.soesan.foodie.UI.TopPanelButtonView
+                   android:id="@+id/btn_popular"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_margin="@dimen/button_gap"
+                   android:layout_column="0"
+                   app:text="@string/Popular"
+                   app:image="@drawable/ic_outline_thumb_up_24px"/>
 
-            <RelativeLayout
-                    android:id="@+id/btn_popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
-                    android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
-
-                <ImageView
-                        android:id="@+id/img_popular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_thumb_up_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_popular"
-                        android:text="@string/Popular"/>
-
-            </RelativeLayout>
-            <RelativeLayout
+            <com.soesan.foodie.UI.TopPanelButtonView
                     android:id="@+id/btn_cuisines"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
                     android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
+                    android:layout_column="1"
+                    app:text="@string/Cuisines"
+                    app:image="@drawable/ic_outline_local_dining_24px"/>
 
-                <ImageView
-                        android:id="@+id/img_cuisines"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_local_dining_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_cuisines"
-                        android:text="@string/Cuisines"/>
-
-            </RelativeLayout>
-            <RelativeLayout
+            <com.soesan.foodie.UI.TopPanelButtonView
                     android:id="@+id/btn_budget"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
                     android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
+                    android:layout_column="2"
+                    app:text="@string/Budget"
+                    app:image="@drawable/ic_outline_fastfood_24px"/>
 
-                <ImageView
-                        android:id="@+id/img_budget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_fastfood_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_budget"
-                        android:text="@string/Budget"/>
-
-            </RelativeLayout>
 
         </TableRow>
         <TableRow android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:layout_weight="1">
 
-            <RelativeLayout
+            <com.soesan.foodie.UI.TopPanelButtonView
                     android:id="@+id/btn_friends"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
                     android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
+                    android:layout_column="0"
+                    app:text="@string/Friends"
+                    app:image="@drawable/ic_outline_group_24px"/>
 
-                <ImageView
-                        android:id="@+id/img_friends"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_group_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_friends"
-                        android:text="@string/Friends"/>
-
-            </RelativeLayout>
-            <RelativeLayout
+            <com.soesan.foodie.UI.TopPanelButtonView
                     android:id="@+id/btn_discounts"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
                     android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
+                    android:layout_column="1"
+                    app:text="@string/Discounts"
+                    app:image="@drawable/ic_outline_monetization_on_24px"/>
 
-                <ImageView
-                        android:id="@+id/img_discounts"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_monetization_on_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_discounts"
-                        android:text="@string/Discounts"/>
-
-            </RelativeLayout>
-            <RelativeLayout
+            <com.soesan.foodie.UI.TopPanelButtonView
                     android:id="@+id/btn_categories"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
                     android:layout_margin="@dimen/button_gap"
-                    style="@style/Widget.AppCompat.Button">
+                    android:layout_column="2"
+                    app:text="@string/Categories"
+                    app:image="@drawable/ic_outline_category_24px"/>
 
-                <ImageView
-                        android:id="@+id/img_categories"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:padding="@dimen/dimen_4"
-                        android:src="@drawable/ic_outline_category_24px"/>
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@+id/img_categories"
-                        android:text="@string/Categories"/>
-
-            </RelativeLayout>
         </TableRow>
 
     </TableLayout>
