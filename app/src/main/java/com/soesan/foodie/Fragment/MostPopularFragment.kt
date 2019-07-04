@@ -1,36 +1,26 @@
 package com.soesan.foodie.Fragment
 
-
+import android.view.animation.DecelerateInterpolator
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.soesan.foodie.Adapter.MostPopularAdapter
 import com.soesan.foodie.R
+import android.support.v4.widget.NestedScrollView
+import android.support.v7.widget.*
+import com.soesan.foodie.UI.AdvancedNestedScrollView
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.DividerItemDecoration
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MostPopularFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class MostPopularFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
+    var isShowingCardHeaderShadow=false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -38,9 +28,49 @@ class MostPopularFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_most_popular, container, false)
+        val view: View=inflater.inflate(R.layout.fragment_most_popular, container, false)
+
+        val nestedScrollView =view.findViewById<AdvancedNestedScrollView>(R.id.bottom_sheet)
+        val cardHeaderView=view.findViewById<View>(R.id.divider)
+
+
+        val recyclerViewPopular = view.findViewById<RecyclerView>(R.id.recyclerView_mostpopular)
+        val mostPopularAdapter = MostPopularAdapter(20,activity!!.baseContext)
+        val lm=LinearLayoutManager(activity!!.baseContext)
+        recyclerViewPopular.layoutManager = lm
+        recyclerViewPopular.adapter = mostPopularAdapter
+        recyclerViewPopular.addItemDecoration(DividerItemDecoration(activity!!.baseContext, lm.orientation))
+        recyclerViewPopular.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val isRecyclerViewScrolledToTop=lm.findFirstVisibleItemPosition() ==0 && lm.findViewByPosition(0)?.top == 0
+                if(!isRecyclerViewScrolledToTop && !isShowingCardHeaderShadow)
+                {
+                    isShowingCardHeaderShadow=true
+                    showOrhideView(cardHeaderView,isShowingCardHeaderShadow)
+                }
+                else
+                {
+                    isShowingCardHeaderShadow=false
+                    showOrhideView(cardHeaderView,isShowingCardHeaderShadow)
+                }
+            }
+        })
+
+        nestedScrollView.overScrollMode=View.OVER_SCROLL_NEVER
+        nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if(scrollY==0 && oldScrollX>0)
+            {
+                recyclerViewPopular.scrollToPosition(0)
+            }
+        })
+
+         return view
     }
 
+    private fun showOrhideView(cardHeaderView: View?, showingCardHeaderShadow: Boolean) {
+        if (cardHeaderView != null)
+            cardHeaderView.animate().alpha(if (showingCardHeaderShadow) 1f else 0f).setDuration(100).interpolator = DecelerateInterpolator()
+    }
 
 
 }

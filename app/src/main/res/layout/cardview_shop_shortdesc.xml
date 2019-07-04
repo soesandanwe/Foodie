@@ -3,36 +3,46 @@
 <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/popularCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/dimen_8"
-        app:cardBackgroundColor="@android:color/transparent">
+        app:cardBackgroundColor="@android:color/white">
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline"
+                app:layout_constraintGuide_percent="0.35"
+                android:orientation="vertical"/>
 
         <ImageView
                 android:id="@+id/imgv_shop"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
                 android:src="@drawable/ic_outline_thumb_up_24px"
                 android:contentDescription="@null"
                 android:scaleType="fitXY"
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintRight_toRightOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
                 android:id="@+id/tv_shop_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="@dimen/dimen_4"
                 android:textStyle="bold"
                 android:text="@string/Shop1"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgv_shop"/>
+                app:layout_constraintLeft_toRightOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <RatingBar
                 android:id="@+id/rb_shop"
@@ -48,8 +58,9 @@
                 android:rating="0"
                 android:secondaryProgressTint="@color/colorLinkBlue"
                 android:stepSize="0.01"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
+                 app:layout_constraintLeft_toRightOf="@+id/guideline"
+                app:layout_constraintRight_toLeftOf="@+id/tv_like_count"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"/>
 
         <TextView
                 android:id="@+id/tv_like_count"
@@ -57,43 +68,90 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_4"
                 android:layout_marginBottom="@dimen/dimen_4"
-                android:layout_marginLeft="@dimen/dimen_8"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:text="@string/star_count"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/rb_shop"
-                app:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
-        <TextView
-                android:id="@+id/tv_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_4"
-                android:layout_marginBottom="@dimen/dimen_4"
-                android:text="@string/price"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_like_count"/>
-        <TextView
-                android:id="@+id/tv_separator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_4"
-                android:layout_marginRight="@dimen/dimen_4"
-                android:layout_marginTop="@dimen/dimen_4"
-                android:layout_marginBottom="@dimen/dimen_4"
-                android:text="@string/separator"
-                android:textAlignment="center"
-                app:layout_constraintLeft_toRightOf="@+id/tv_price"
-                app:layout_constraintRight_toLeftOf="@+id/tv_shop_type"
-                app:layout_constraintTop_toBottomOf="@+id/tv_like_count"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"/>
+
         <TextView
                 android:id="@+id/tv_shop_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_4"
                 android:layout_marginBottom="@dimen/dimen_4"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:text="@string/Shoptype"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/tv_separator"
+                 app:layout_constraintLeft_toRightOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_like_count"/>
+
+        <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:text="@string/star_count"
+                app:layout_constraintLeft_toRightOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_type"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_separator1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_4"
+                android:layout_marginEnd="@dimen/dimen_4"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:text="@string/separator"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toRightOf="@+id/tv_distance"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_type"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/dimen_4"
+                android:text="@string/price"
+                app:layout_constraintLeft_toRightOf="@+id/tv_separator1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_type"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+                android:id="@+id/tv_separator2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_4"
+                android:layout_marginEnd="@dimen/dimen_4"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:text="@string/separator"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toRightOf="@+id/tv_price"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_type"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginStart="@dimen/dimen_4"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="@string/open"
+                app:layout_constraintLeft_toRightOf="@+id/tv_separator2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_type"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
     </android.support.constraint.ConstraintLayout>
 
 

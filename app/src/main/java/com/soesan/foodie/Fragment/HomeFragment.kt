@@ -3,26 +3,17 @@ package com.soesan.foodie.Fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
-
 import com.soesan.foodie.R
 import com.soesan.foodie.UI.TopPanelButtonView
-import kotlinx.android.synthetic.main.fragment_home.*
-import android.support.v4.view.ViewCompat.setNestedScrollingEnabled
 import android.support.v7.widget.LinearLayoutManager
-import android.R.attr.country
-import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import com.soesan.foodie.Adapter.RecommendedItemHomeAdapter
 import android.support.v7.app.AppCompatActivity
 
-
+import com.soesan.foodie.Fragment.MostPopularFragment
 
 
 class HomeFragment : Fragment() {

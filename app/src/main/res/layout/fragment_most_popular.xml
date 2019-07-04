@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.design.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,21 +8,63 @@
             android:layout_height="match_parent"
             tools:context=".Fragment.MostPopularFragment">
 
+    <FrameLayout
+            android:id="@+id/toolbar_container"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/imgv_shop"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_outline_thumb_up_24px"
+                android:contentDescription="@null"
+                android:layout_gravity="top"
+                android:scaleType="fitXY"/>
+    </FrameLayout>
 
 
-  <android.support.v4.widget.NestedScrollView
+  <com.soesan.foodie.UI.AdvancedNestedScrollView
             android:id="@+id/bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorLinkBlue"
-            app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
-            app:behavior_hideable="true"
-            app:behavior_peekHeight="150dp">
-      <TextView
+            android:fillViewport="true"
+            app:layout_behavior="com.soesan.foodie.UI.CustomBehavior">
+      <FrameLayout
+              android:id="@+id/card_container"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:text="@string/hello_blank_fragment"/>
-  </android.support.v4.widget.NestedScrollView>
+              android:layout_height="wrap_content"
+              android:descendantFocusability="blocksDescendants">
+
+          <android.support.v7.widget.CardView
+                  android:id="@+id/card_view"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+              <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+                  <com.soesan.foodie.UI.MaxHeightRecyclerView
+                          android:id="@+id/recyclerView_mostpopular"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+
+                  </com.soesan.foodie.UI.MaxHeightRecyclerView>
+                  <View
+                          android:id="@+id/divider"
+                          android:layout_width="match_parent"
+                          android:layout_height="1dp"
+                          android:alpha="0"
+                          android:background="@color/colorGray"/>
+              </LinearLayout>
+
+
+          </android.support.v7.widget.CardView>
+
+
+      </FrameLayout>
+  </com.soesan.foodie.UI.AdvancedNestedScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>
