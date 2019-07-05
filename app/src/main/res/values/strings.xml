@@ -26,4 +26,5 @@
     <string name="star_count">123</string>
     <string name="open">Open now</string>
     <string name="close">Closed</string>
+    <string name="title_activity_most_popular_shops">MostPopularShops</string>
 </resources>
