@@ -1,6 +1,7 @@
 package com.soesan.foodie.Activity
 
 import android.content.ContentValues
+import android.graphics.Paint
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,8 @@ import com.soesan.foodie.Adapter.MostPopularAdapter
 import com.soesan.foodie.R
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
-import kotlinx.android.synthetic.main.activity_most_popular_shops.*
+import android.widget.TextView
+
 
 class MostPopularShops : AppCompatActivity() {
 
@@ -46,6 +48,9 @@ class MostPopularShops : AppCompatActivity() {
                 mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED)
             }
         })
+
+        val place=findViewById<TextView>(R.id.tv_place)
+        place.setPaintFlags(place.getPaintFlags() or Paint.UNDERLINE_TEXT_FLAG)
 
 
     }
