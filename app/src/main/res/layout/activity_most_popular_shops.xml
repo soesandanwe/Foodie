@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/barrier"
             sothree:barrierDirection="top"
-            sothree:constraint_referenced_ids="filter_view"/>
+            sothree:constraint_referenced_ids="filter_view,guideline2"/>
 
     <android.support.constraint.Guideline
             android:layout_width="wrap_content"
@@ -86,7 +86,11 @@
         sothree:umanoParallaxOffset="300dp"
         sothree:umanoDragView="@+id/dragView"
         sothree:umanoOverlay="true"
-        sothree:umanoScrollableView="@+id/recyclerView_mostpopular">
+        sothree:umanoScrollableView="@+id/recyclerView_mostpopular"
+        sothree:layout_constraintStart_toStartOf="parent"
+        sothree:layout_constraintEnd_toEndOf="parent"
+        sothree:layout_constraintTop_toBottomOf="@+id/guideline2"
+        sothree:layout_constraintBottom_toBottomOf="parent">
 
     <!-- MAIN CONTENT -->
 
