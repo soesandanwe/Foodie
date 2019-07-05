@@ -51,40 +51,6 @@ class MostPopularAdapter(val items :Int, val context: Context) : RecyclerView.Ad
             p0?.tv_status.setTextColor(ContextCompat.getColor(context,R.color.colorGray))
         }
 
-        /*p0?.cardview_popular.setOnDragListener(View.OnDragListener {
-            mBottomSheetBehavior.state(BottomSheetBehavior.STATE_DRAGGING)
-
-        })*/
-    /*    val mBottomSheetBehaviour = BottomSheetBehavior.from(bottom_sheet)
-
-        mBottomSheetBehaviour.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                when (newState) {
-                    BottomSheetBehavior.STATE_HIDDEN -> {
-                    }
-                    BottomSheetBehavior.STATE_EXPANDED -> {
-                    }
-                    BottomSheetBehavior.STATE_COLLAPSED -> {
-                    }
-                    BottomSheetBehavior.STATE_DRAGGING -> {
-                    }
-                    BottomSheetBehavior.STATE_SETTLING -> {
-                    }
-                }
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
-            }
-        })
-
-        p0?.cardview_popular.setOnClickListener(View.OnClickListener {
-            if (mBottomSheetBehaviour.getState() !== BottomSheetBehavior.STATE_EXPANDED) {
-                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED)
-            } else {
-                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED)
-            }
-        })*/
 
     }
     override fun getItemCount(): Int {
