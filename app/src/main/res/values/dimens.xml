@@ -9,5 +9,6 @@
     <dimen name="dimen_2">2dp</dimen>
     <dimen name="dimen_4">4dp</dimen>
     <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_48">48dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
 </resources>

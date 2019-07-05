@@ -12,7 +12,7 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/topPanel"
+
             app:layout_constraintGuide_percent="0.32" />
 
     <android.support.constraint.Guideline
@@ -28,14 +28,14 @@
             android:id="@+id/RecommendedPanelBottom"
             app:layout_constraintGuide_percent="0.34" />
     <TableLayout
+            android:id="@+id/topPanel"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:stretchColumns="*"
             android:background="@color/colorGray"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/topPanel">
+            app:layout_constraintTop_toTopOf="parent">
 
         <TableRow android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -113,7 +113,7 @@
             android:textStyle="bold"
             app:layout_constraintRight_toLeftOf="@+id/lbl_Recommended_SeeAll"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RecommendedPanelTop"/>
+            app:layout_constraintTop_toBottomOf="@+id/topPanel"/>
 
     <TextView
             android:id="@+id/lbl_Recommended_SeeAll"
@@ -125,7 +125,7 @@
             android:textColor="@color/colorLinkBlue"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/lbl_Recommended"
-            app:layout_constraintTop_toBottomOf="@+id/RecommendedPanelTop"/>
+            app:layout_constraintTop_toBottomOf="@+id/topPanel"/>
 
     <android.support.v4.widget.NestedScrollView
             android:id="@+id/horizontalScrollView"
@@ -153,5 +153,44 @@
         </android.support.v7.widget.RecyclerView>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+            android:id="@+id/lbl_Friends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="@string/testimonial"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"/>
+
+    <ScrollView
+            android:id="@+id/verticalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Friends">
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_testimonial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_Friends"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
