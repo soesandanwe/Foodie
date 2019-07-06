@@ -14,12 +14,23 @@ import com.soesan.foodie.Adapter.MostPopularAdapter
 import com.soesan.foodie.R
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import android.widget.TextView
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import android.view.ViewGroup
+import com.google.android.gms.maps.*
+import android.util.DisplayMetrics
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.CameraUpdate
+import kotlin.math.roundToInt
 
 
-
-class MostPopularShops : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class MostPopularShops : AppCompatActivity(), AdapterView.OnItemSelectedListener, OnMapReadyCallback {
     var spinner: Spinner? = null
     var shops: Int=20
+    private lateinit var mMap: GoogleMap
+    private lateinit var mapView:MapView
+    private val MAP_VIEW_BUNDLE_KEY = "AIzaSyAByJNQVORLPeY_3g3Y5KssRM3-PHkbsjw"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_most_popular_shops)
@@ -72,6 +83,27 @@ class MostPopularShops : AppCompatActivity(), AdapterView.OnItemSelectedListener
         // Set Adapter to Spinner
         spinner!!.setAdapter(aa)
 
+        var mapViewBundle: Bundle? = null
+        if (savedInstanceState != null) {
+
+            mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY)
+        }
+
+
+        mapView = findViewById(R.id.mapView_shop)
+        mapView.onCreate(mapViewBundle)
+        mapView.getMapAsync(this)
+        val mapViewParams = mapView.getLayoutParams()
+
+        val displayMetrics = DisplayMetrics()
+        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)
+        val screenDisplayHeight = displayMetrics.heightPixels
+        val bottom_slide_dimension = this.resources.getDimension(R.dimen.bottom_slide).toInt();
+        val margin_dimension = this.resources.getDimension(R.dimen.activity_horizontal_margin).toInt();
+
+        mapViewParams.height = (screenDisplayHeight-bottom_slide_dimension)-((bottom_slide_dimension/2)+margin_dimension);
+        mapView.setLayoutParams(mapViewParams);
+
     }
     override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {
 
@@ -79,5 +111,25 @@ class MostPopularShops : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
     override fun onNothingSelected(arg0: AdapterView<*>) {
 
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        mMap.setMinZoomPreference(5f);
+
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f))
+
+        val mUiSettings = mMap.getUiSettings()
+        mUiSettings.setZoomControlsEnabled(true)
+        mUiSettings.setScrollGesturesEnabled(true)
+        mUiSettings.setZoomGesturesEnabled(true)
+        mUiSettings.setMapToolbarEnabled(true)
+        mUiSettings.setCompassEnabled(true)
+        mUiSettings.setMyLocationButtonEnabled(true)
+        mUiSettings.setAllGesturesEnabled(true)
     }
 }

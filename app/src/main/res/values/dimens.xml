@@ -10,5 +10,7 @@
     <dimen name="dimen_4">4dp</dimen>
     <dimen name="dimen_8">8dp</dimen>
     <dimen name="dimen_48">48dp</dimen>
+    <dimen name="dimen_64">48dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="bottom_slide">120dp</dimen>
 </resources>
