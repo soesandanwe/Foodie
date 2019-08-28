@@ -1,5 +1,5 @@
 <resources>
-    <string name="google_maps_key">AIzaSyAByJNQVORLPeY_3g3Y5KssRM3-PHkbsjw</string>
+
     <string name="app_name">Foodie</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -30,4 +30,5 @@
     <string name="title_activity_most_popular_shops">Most Popular</string>
     <string name="filter">FILTER</string>
     <string name="testimonial">YOUR FRIENDS\'S IMPRESSIONS</string>
+    <string name="ellipsis_end">...</string>
 </resources>

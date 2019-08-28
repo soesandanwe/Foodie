@@ -84,70 +84,62 @@
                     android:textSize="16sp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
-<com.sothree.slidinguppanel.SlidingUpPanelLayout
-
-        android:id="@+id/sliding_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        sothree:umanoPanelHeight="@dimen/bottom_slide"
-        sothree:umanoShadowHeight="4dp"
-        sothree:umanoParallaxOffset="250dp"
-        sothree:umanoDragView="@+id/dragView"
-        sothree:umanoOverlay="true"
-        sothree:umanoScrollableView="@+id/recyclerView_mostpopular"
-        sothree:layout_constraintStart_toStartOf="parent"
-        sothree:layout_constraintEnd_toEndOf="parent"
-        sothree:layout_constraintTop_toBottomOf="@+id/guideline2"
-        sothree:layout_constraintBottom_toBottomOf="parent">
-
-    <!-- MAIN CONTENT -->
-
-
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="false"
-            android:focusableInTouchMode="true"
-            sothree:layout_constraintRight_toRightOf="parent"
-            sothree:layout_constraintLeft_toLeftOf="parent"
-            sothree:layout_constraintBottom_toBottomOf="parent"
-            sothree:layout_constraintTop_toBottomOf="@+id/filter_view">
+            android:layout_height="0dp"
+            sothree:layout_constraintStart_toStartOf="parent"
+            sothree:layout_constraintEnd_toEndOf="parent"
+            sothree:layout_constraintTop_toBottomOf="@+id/filter_view"
+            sothree:layout_constraintBottom_toBottomOf="parent">
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+
+                android:id="@+id/sliding_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                sothree:umanoPanelHeight="@dimen/bottom_slide"
+                sothree:umanoShadowHeight="4dp"
+                sothree:umanoParallaxOffset="250dp"
+                sothree:umanoDragView="@+id/dragView"
+                sothree:umanoOverlay="true"
+                sothree:umanoScrollableView="@+id/recyclerView_mostpopular"
+                >
+
+            <!-- MAIN CONTENT -->
 
 
-
-            <com.google.android.gms.maps.MapView
-                    android:id="@+id/mapView_shop"
+            <fragment
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                   />
-
-    </FrameLayout>
-
-    <!-- SLIDING LAYOUT -->
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="false"
-            android:id="@+id/dragView">
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:id="@+id/mapViewLayout"
+                    sothree:mapType="normal"/>
 
 
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView_mostpopular"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="false">
+            <!-- SLIDING LAYOUT -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:id="@+id/dragView">
 
-        </android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView_mostpopular"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="false">
+
+                </android.support.v7.widget.RecyclerView>
 
 
-    </LinearLayout>
-</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+            </LinearLayout>
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
