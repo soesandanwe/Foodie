@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
@@ -54,13 +55,17 @@ var isCheck:Boolean=true
             p0?.tv_status.setTextColor(ContextCompat.getColor(context,R.color.colorGray))
         }
 
+
         p0?.tv_review.text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-        val spanStr:SpannableString=SpannableString(context.getString(R.string.ellipsis_end))
-        val foregroundSpan = ForegroundColorSpan(context.resources.getColor(R.color.colorAccent))
-        spanStr.setSpan(foregroundSpan,0,spanStr.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        p0?.tv_review.setEllipsizeText(spanStr,0)
+        /* val spanStr:SpannableString=SpannableString(context.getString(R.string.ellipsis_end))
+         val foregroundSpan = ForegroundColorSpan(context.resources.getColor(R.color.colorAccent))
+         spanStr.setSpan(foregroundSpan,0,spanStr.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+         p0?.tv_review.setEllipsizeText(spanStr,0)
 
+         p0?.tv_review.setEllipsizeText(spanStr,0)
+         p0?.tv_review.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+       */
         p0?.tv_review.setOnClickListener { view ->   if (isCheck) {
             p0?.tv_review.setMaxLines(Int.MAX_VALUE);
             isCheck = false;
